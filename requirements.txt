@@ -108,7 +108,7 @@ peewee==3.15.4
 pexpect==4.8.0
 pickleshare==0.7.5
 pikepdf==5.4.0
-Pillow==9.2.0
+Pillow==9.3.0
 platformdirs==2.5.2
 pluggy==1.0.0
 prompt-toolkit==3.0.36
