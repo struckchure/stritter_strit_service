@@ -24,7 +24,7 @@ command-not-found==0.3
 commitizen==2.27.1
 construct==2.10.68
 contextlib2==21.6.0
-cryptography==37.0.4
+cryptography==38.0.3
 cupshelpers==1.0
 dbus-python==1.2.18
 decli==0.5.2
