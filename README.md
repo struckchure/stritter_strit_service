@@ -1,4 +1,4 @@
-# stritt_service
+# strit_service
 
 Strit service for stritter.
 
