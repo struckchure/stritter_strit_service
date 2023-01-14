@@ -1,6 +1,6 @@
 # stritt_service
 
-Stritt service for stritter.
+Strit service for stritter.
 
 ## Installation
 
