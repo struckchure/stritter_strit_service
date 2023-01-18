@@ -4,7 +4,7 @@ from config import env, events
 from routes import root_route
 
 app = FastAPI(
-    title="Stritt Service",
+    title="Strit Service",
     version="0.0.0",
     docs_url="/api/v1/docs/",
     redoc_url="/api/v1/redocs/",

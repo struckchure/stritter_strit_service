@@ -5,7 +5,7 @@ from datetime import datetime
 import pydantic
 
 
-class StrittObject(typing.TypedDict):
+class StritObject(typing.TypedDict):
 
     id: uuid.UUID
     user_id: uuid.UUID
@@ -14,16 +14,16 @@ class StrittObject(typing.TypedDict):
     updated_at: datetime
 
 
-class StrittProps(pydantic.BaseModel):
+class StritProps(pydantic.BaseModel):
 
     user_id: uuid.UUID
     body: str
 
 
-class StrittCreateProps(StrittProps):
+class StritCreateProps(StritProps):
     pass
 
 
-class StrittUpdateProps(pydantic.BaseModel):
+class StritUpdateProps(pydantic.BaseModel):
 
     body: typing.Optional[str]

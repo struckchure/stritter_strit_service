@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from routes import stritt_route
+from routes import strit_route
 
 router = APIRouter(prefix="/api/v1")
 
-router.include_router(stritt_route.router)
+router.include_router(strit_route.router)

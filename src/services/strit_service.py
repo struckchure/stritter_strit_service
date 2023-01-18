@@ -2,18 +2,18 @@ import uuid
 
 from fastapi import HTTPException
 
-from dao.stritt_dao import StrittDAO
-from props.stritt_props import StrittCreateProps, StrittObject, StrittUpdateProps
+from dao.strit_dao import StritDAO
+from props.strit_props import StritCreateProps, StritObject, StritUpdateProps
 
 
-class StrittService:
+class StritService:
     @staticmethod
-    def create_stritt(user_id: uuid.UUID, body: str) -> StrittObject:
+    def create_strit(user_id: uuid.UUID, body: str) -> StritObject:
         try:
-            stritt_data = StrittCreateProps(user_id=user_id, body=body)
-            stritt = StrittDAO.create_stritt(stritt_data=stritt_data)
+            stritt_data = StritCreateProps(user_id=user_id, body=body)
+            stritt = StritDAO.create_strit(strit_data=stritt_data)
 
-            return StrittObject(
+            return StritObject(
                 **{
                     "id": stritt.id,
                     "user_id": stritt.user_id,
@@ -26,10 +26,10 @@ class StrittService:
             raise HTTPException(status_code=400, detail=str(e))
 
     @staticmethod
-    def list_stritt() -> list[StrittObject]:
+    def list_strit() -> list[StritObject]:
         try:
             return [
-                StrittObject(
+                StritObject(
                     **{
                         "id": stritt.id,
                         "user_id": stritt.user_id,
@@ -38,17 +38,17 @@ class StrittService:
                         "updated_at": stritt.updated_at,
                     }
                 )
-                for stritt in StrittDAO.list_stritt()
+                for stritt in StritDAO.list_strit()
             ]
         except Exception as e:
             raise HTTPException(status_code=400, detail=str(e))
 
     @staticmethod
-    def get_stritt(stritt_id: uuid.UUID) -> StrittObject:
+    def get_strit(strit_id: uuid.UUID) -> StritObject:
         try:
-            stritt = StrittDAO.get_stritt(stritt_id=stritt_id)
+            stritt = StritDAO.get_strit(strit_id=strit_id)
 
-            return StrittObject(
+            return StritObject(
                 **{
                     "id": stritt.id,
                     "user_id": stritt.user_id,
@@ -61,24 +61,24 @@ class StrittService:
             raise HTTPException(status_code=400, detail=str(e))
 
     @staticmethod
-    def update_stritt(stritt_id: uuid.UUID, body: str) -> StrittObject:
+    def update_strit(strit_id: uuid.UUID, body: str) -> StritObject:
         try:
-            stritt_data = StrittUpdateProps(body=body)
-            StrittDAO.update_stritt(stritt_id=stritt_id, stritt_data=stritt_data)
-            stritt = StrittDAO.get_stritt(stritt_id=stritt_id)
+            strit_data = StritUpdateProps(body=body)
+            StritDAO.update_strit(strit_id=strit_id, strit_data=strit_data)
+            strit = StritDAO.get_strit(strit_id=strit_id)
 
-            return StrittObject(
+            return StritObject(
                 **{
-                    "id": stritt.id,
-                    "user_id": stritt.user_id,
-                    "body": stritt.body,
-                    "created_at": stritt.created_at,
-                    "updated_at": stritt.updated_at,
+                    "id": strit.id,
+                    "user_id": strit.user_id,
+                    "body": strit.body,
+                    "created_at": strit.created_at,
+                    "updated_at": strit.updated_at,
                 }
             )
         except Exception as e:
             raise HTTPException(status_code=400, detail=str(e))
 
     @staticmethod
-    def delete_stritt(stritt_id: uuid.UUID):
-        StrittDAO.delete_stritt(stritt_id=stritt_id)
+    def delete_strit(strit_id: uuid.UUID):
+        StritDAO.delete_strit(strit_id=strit_id)
